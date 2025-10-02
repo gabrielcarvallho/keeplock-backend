@@ -1,0 +1,50 @@
+# Git
+.git
+.gitignore
+README.md
+LICENSE
+*.md
+
+# Build outputs
+**/bin/
+**/obj/
+**/out/
+**/publish/
+
+# Development files
+**/.vs/
+**/.vscode/
+**/.idea/
+*.user
+*.suo
+
+# Test results
+**/TestResults/
+**/*test*.xml
+**/*coverage*.xml
+
+# Environment files
+**/.env
+**/.env.*
+!**/.env.example
+
+# Docker files
+**/Dockerfile*
+**/docker-compose*
+docker/
+
+# Data directories
+**/data/
+**/logs/
+**/uploads/
+**/temp/
+
+# Package files
+**/*.nupkg
+**/*.snupkg
+
+# OS files
+**/.DS_Store
+**/Thumbs.db
+**/*.tmp
+**/*.temp
