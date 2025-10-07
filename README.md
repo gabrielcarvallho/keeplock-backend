@@ -49,19 +49,6 @@ The project uses Docker Compose to manage external dependencies (PostgreSQL, Mon
    docker-compose ps
    ```
 
-3. **Access the management tools:**
-   - **Portainer** (Docker Management): http://localhost:9000 or https://localhost:9443
-   - **Seq** (Centralized Logging): http://localhost:5341
-     - Username: `admin`
-     - Password: `admin@123`
-   - **PostgreSQL**: `localhost:5432`
-     - Database: `keeplock`
-     - Username: `postgres`
-     - Password: `MyStrong!Passw0rd`
-   - **MongoDB**: `localhost:27017`
-     - Username: `admin`
-     - Password: `secret`
-
 4. **Stop all services:**
    ```bash
    docker-compose stop
@@ -122,4 +109,5 @@ KeepLock/
 │   └── docker-compose.yml     # Infrastructure services configuration
 ├── Dockerfile                 # API containerization
 └── KeepLock.sln              # Solution file
+
 ```
