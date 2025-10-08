@@ -19,7 +19,7 @@ COPY ["src/KeepLock.Infrastructure/KeepLock.Infrastructure.csproj", "src/KeepLoc
 RUN dotnet restore "src/KeepLock.API/KeepLock.API.csproj"
 COPY . .
 
-WORKDIR "/src/KeepLock.API"
+WORKDIR "/src/src/KeepLock.API"
 RUN dotnet build "KeepLock.API.csproj" -c Release -o /app/build
 
 # Stage 2: Publish Stage

@@ -31,95 +31,47 @@
 
 ### Prerequisites
 
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop)
-- [Git](https://git-scm.com/)
+- .NET 8 SDK
+- Docker Desktop
+- Docker Compose
 
-### Running the Infrastructure
+### Running in Development
 
-The project uses Docker Compose to manage external dependencies (PostgreSQL, MongoDB, Seq, and Portainer).
+#### 1. Running local infrastructure
 
-1. **Start all infrastructure services:**
-   ```bash
-   docker-compose up -d
-   ```
+For the development environment, all infrastructure services (PostgreSQL, MongoDB, RabbitMQ) are managed with Docker.
 
-2. **Verify all containers are running:**
-   ```bash
-   docker-compose ps
-   ```
-
-3. **Access the management tools:**
-   - **Portainer** (Docker Management): http://localhost:9000 or https://localhost:9443
-   - **Seq** (Centralized Logging): http://localhost:5341
-     - Username: `admin`
-     - Password: `admin@123`
-   - **PostgreSQL**: `localhost:5432`
-     - Database: `keeplock`
-     - Username: `postgres`
-     - Password: `MyStrong!Passw0rd`
-   - **MongoDB**: `localhost:27017`
-     - Username: `admin`
-     - Password: `secret`
-
-4. **Stop all services:**
-   ```bash
-   docker-compose stop
-   ```
-
-5. **Remove all containers (keeps volumes):**
-   ```bash
-   docker-compose down
-   ```
-
-6. **Remove all containers and volumes:**
-   ```bash
-   docker-compose down -v
-   ```
-
-### Running the API
-
-**Option 1: Using Visual Studio / Rider**
-- Open `KeepLock.sln`
-- Set `KeepLock.API` as startup project
-- Press F5 or click Run
-
-**Option 2: Using .NET CLI**
-```bash
-cd src/KeepLock.API
-dotnet run
-```
-
-The API will be available at:
-- HTTP: `http://localhost:5000`
-- HTTPS: `https://localhost:5001`
-- Swagger: `http://localhost:5000/swagger`
-
-### Building with Docker
-
-To build and run the API in a Docker container:
+First, start the containers:
 
 ```bash
-# Build the image
-docker build -t keeplock-api:local -f Dockerfile .
-
-# Run the container
-docker run --rm -it -p 7001:8080 keeplock-api:local
+docker-compose up -d
 ```
 
-The API will be available at `http://localhost:7001`
+> **Services will be available on ports:**
+> - **PostgreSQL:** 5432
+> - **MongoDB:** 27017 
+> - **Portainer:** 9000
+> - **Seq (logs):** 5341
 
-## Project Structure
+#### 2. Running the Backend
 
+The backend runs in a separate Docker container that connects to the local infrastructure network
+
+Build the Docker image from the project's Dockerfile
+
+```bash
+docker build -t keeplock-api .
 ```
-KeepLock/
-├── src/
-│   ├── KeepLock.API/          # Presentation Layer (Controllers, Middleware)
-│   ├── KeepLock.Application/  # Application Layer (Use Cases, CQRS)
-│   ├── KeepLock.Domain/       # Domain Layer (Entities, Value Objects)
-│   └── KeepLock.Infrastructure/ # Infrastructure Layer (Data Access, External Services)
-├── docker/
-│   └── docker-compose.yml     # Infrastructure services configuration
-├── Dockerfile                 # API containerization
-└── KeepLock.sln              # Solution file
+
+Then run the container. The command below will connect the backend to the Docker Compose network.
+
+> **Note:** Check your network name with `docker network ls`.
+
+```bash
+docker run -p 7001:8080 --network keeplock_default keeplock-api
 ```
+
+#### 3. Access the Backend Application
+
+- **Swagger UI**: `http://localhost:7001/swagger`
+- **API**: `http://localhost:7001`
