@@ -36,7 +36,13 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          dotnet sonarscanner begin /d:sonar.token="$SONAR_TOKEN"
+          dotnet sonarscanner begin \
+            /k:"gabrielcarvallho_keeplock-backend" \
+            /o:"gabrielcarvallho" \
+            /d:sonar.host.url="https://sonarcloud.io" \
+            /d:sonar.token="$SONAR_TOKEN" \
+            /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml" \
+            /d:sonar.cs.vstest.reportsPaths="**/*.trx"
       
       - name: Build
         run: dotnet build ./KeepLock.sln --configuration Release --no-restore
