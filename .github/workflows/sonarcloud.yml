@@ -3,7 +3,7 @@ name: SonarCloud Analysis
 on:
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   sonarcloud:
@@ -36,7 +36,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          dotnet sonarscanner begin /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet sonarscanner begin /d:sonar.token="$SONAR_TOKEN"
       
       - name: Build
         run: dotnet build ./KeepLock.sln --configuration Release --no-restore
@@ -47,4 +47,4 @@ jobs:
       - name: End SonarCloud Analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+        run: dotnet sonarscanner end /d:sonar.token="$SONAR_TOKEN"
