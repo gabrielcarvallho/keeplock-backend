@@ -1,6 +1,6 @@
 ﻿using KeepLock.Domain.Models.Common;
 
-namespace KeepLock.Domain.Models.Organization;
+namespace KeepLock.Domain.Models.Organizations;
 
 public class Organization : BaseEntity
 {

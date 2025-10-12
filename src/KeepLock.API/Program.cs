@@ -1,4 +1,5 @@
 using KeepLock.Infrastructure;
+using KeepLock.API.Middleware;
 using Serilog;
 using Serilog.Events;
 using System.Reflection;
@@ -68,6 +69,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Configure the HTTP request pipeline
+app.UseRequestTimestamp();
+app.UseMiddleware<ExceptionHandlerMiddleware>();
+
 app.UseSerilogRequestLogging(options =>
 {
     options.MessageTemplate = "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms";
@@ -77,6 +82,15 @@ app.UseSerilogRequestLogging(options =>
         diagnosticContext.Set("RequestHost", httpContext.Request.Host.Value);
         diagnosticContext.Set("RequestScheme", httpContext.Request.Scheme);
         diagnosticContext.Set("UserAgent", httpContext.Request.Headers["User-Agent"].FirstOrDefault() ?? "Unknown");
+
+        var hasReqId = httpContext.Items.TryGetValue("RequestId", out var reqIdObj);
+        var requestId = hasReqId ? reqIdObj?.ToString() : httpContext.TraceIdentifier;
+        diagnosticContext.Set("RequestId", requestId);
+
+        if (httpContext.Items.TryGetValue("RequestTimestamp", out var tsObj) && tsObj is not null)
+        {
+            diagnosticContext.Set("RequestTimestamp", tsObj);
+        }
     };
 });
 

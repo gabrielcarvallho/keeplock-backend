@@ -1,5 +1,5 @@
 ﻿using KeepLock.Domain.Models;
-using KeepLock.Domain.Models.Organization;
+using KeepLock.Domain.Models.Organizations;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

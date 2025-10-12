@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepLock.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepLock.API", "src\KeepLock.API\KeepLock.API.csproj", "{0F4B1F1C-B00B-45A9-B06A-D38A55EAA80A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepLock.Shared", "KeepLock.Shared\KeepLock.Shared.csproj", "{2DDD9340-E7D3-41B8-8714-41E41C05677B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,18 @@ Global
 		{0F4B1F1C-B00B-45A9-B06A-D38A55EAA80A}.Release|x64.Build.0 = Release|Any CPU
 		{0F4B1F1C-B00B-45A9-B06A-D38A55EAA80A}.Release|x86.ActiveCfg = Release|Any CPU
 		{0F4B1F1C-B00B-45A9-B06A-D38A55EAA80A}.Release|x86.Build.0 = Release|Any CPU
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B}.Debug|x64.Build.0 = Debug|Any CPU
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B}.Debug|x86.Build.0 = Debug|Any CPU
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B}.Release|x64.ActiveCfg = Release|Any CPU
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B}.Release|x64.Build.0 = Release|Any CPU
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B}.Release|x86.ActiveCfg = Release|Any CPU
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +94,9 @@ Global
 		{8C38DF1F-5B3F-4EA5-AFB4-C65CCE3122B3} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{73199648-A013-47F8-B220-65010D2AF163} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{0F4B1F1C-B00B-45A9-B06A-D38A55EAA80A} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{2DDD9340-E7D3-41B8-8714-41E41C05677B} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1BC3530-6F3C-432E-87C1-86D5078C9F4C}
 	EndGlobalSection
 EndGlobal
