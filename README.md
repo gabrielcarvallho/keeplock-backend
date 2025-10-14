@@ -1,6 +1,6 @@
 # KeepLock
 
-KeepLock is a secure and scalable platform designed for people and organizations to manage sensitive data, credentials, and access controls. The system centralizes critical information, streamlines permission management, and provides robust auditing capabilities, making it ideal for organizations that require high standards of security and compliance.
+KeepLock is a secure and scalable system designed for people and organizations to manage sensitive data, credentials, and access controls. The system centralizes critical information, streamlines permission management, and provides robust auditing capabilities, making it ideal for organizations that require high standards of security and compliance.
 
 ## Project scope
 
@@ -86,4 +86,5 @@ docker run -p 7001:8080 --network keeplock_default keeplock-api
 #### 3. Access the Backend Application
 
 - **Swagger UI**: `http://localhost:7001/swagger`
+
 - **API**: `http://localhost:7001`
