@@ -1,8 +1,8 @@
-﻿using KeepLock.Domain.Models.Common.Primitives.Interfaces;
-using KeepLock.Domain.Models.Common.Primitives.records;
+﻿using KeepLock.Shared.Primitives.Interfaces;
+using KeepLock.Shared.Primitives.Records;
 using System.Text.Json.Serialization;
 
-namespace KeepLock.Application.Common.Models;
+namespace KeepLock.Shared.Results;
 
 public record PagedResult<TItem>(IReadOnlyCollection<TItem> Items, Paging Paging)
         : IPagedResult<TItem> where TItem : class
