@@ -1,6 +1,6 @@
 ﻿using KeepLock.Domain.Enums;
 using KeepLock.Domain.Models.Common;
-using KeepLock.Domain.Models.Organization;
+using KeepLock.Domain.Models.Organizations;
 
 namespace KeepLock.Domain.Models;
 

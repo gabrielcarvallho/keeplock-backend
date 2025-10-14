@@ -1,4 +1,4 @@
-namespace KeepLock.Domain.Enums.Organization;
+namespace KeepLock.Domain.Enums.Organizations;
 
 public enum OrganizationUserStatus
 {

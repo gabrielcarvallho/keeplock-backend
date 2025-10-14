@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\KeepLock.Domain\KeepLock.Domain.csproj" />
-  </ItemGroup>
-
 </Project>

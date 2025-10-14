@@ -1,7 +1,7 @@
-using KeepLock.Domain.Enums.Organization;
+using KeepLock.Domain.Enums.Organizations;
 using KeepLock.Domain.Models.Common;
 
-namespace KeepLock.Domain.Models.Organization;
+namespace KeepLock.Domain.Models.Organizations;
 
 public class OrganizationUser : BaseEntity
 {
