@@ -1,18 +1,18 @@
-using KeepLock.Domain.Enums.Organizations;
-using KeepLock.Domain.Models.Common;
+using KeepLock.Domain.Entities.Common;
+using KeepLock.Domain.Enums;
 
-namespace KeepLock.Domain.Models.Organizations;
+namespace KeepLock.Domain.Entities;
 
 public class OrganizationUser : BaseEntity
 {
     public Guid OrganizationId { get; set; }
     public Guid UserId { get; set; }
-    public string Email { get; set; } = string.Empty;
+    public string UserEmail { get; set; } = string.Empty;
 
     public OrganizationUserStatus Status { get; set; } = OrganizationUserStatus.Invited;
-    public OrganizationUserType Type { get; set; } = OrganizationUserType.User;
+    public OrganizationUserType UserType { get; set; } = OrganizationUserType.ReadOnly;
     public bool IsAccessAll { get; set; } = false;
 
     public virtual Organization Organization { get; set; } = null!;
-    public virtual User? User { get; set; }
+    public virtual User User { get; set; } = null!;
 }

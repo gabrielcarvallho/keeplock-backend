@@ -25,7 +25,7 @@ namespace KeepLock.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("KeepLock.Domain.Models.Organization.Organization", b =>
+            modelBuilder.Entity("KeepLock.Domain.Entities.Organizations.Organization", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -83,7 +83,7 @@ namespace KeepLock.Infrastructure.Migrations
                     b.ToTable("Organizations");
                 });
 
-            modelBuilder.Entity("KeepLock.Domain.Models.Organization.OrganizationUser", b =>
+            modelBuilder.Entity("KeepLock.Domain.Entities.Organizations.OrganizationUser", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -131,7 +131,7 @@ namespace KeepLock.Infrastructure.Migrations
                     b.ToTable("OrganizationUsers");
                 });
 
-            modelBuilder.Entity("KeepLock.Domain.Models.User", b =>
+            modelBuilder.Entity("KeepLock.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -198,15 +198,15 @@ namespace KeepLock.Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("KeepLock.Domain.Models.Organization.OrganizationUser", b =>
+            modelBuilder.Entity("KeepLock.Domain.Entities.Organizations.OrganizationUser", b =>
                 {
-                    b.HasOne("KeepLock.Domain.Models.Organization.Organization", "Organization")
+                    b.HasOne("KeepLock.Domain.Entities.Organizations.Organization", "Organization")
                         .WithMany("Users")
                         .HasForeignKey("OrganizationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("KeepLock.Domain.Models.User", "User")
+                    b.HasOne("KeepLock.Domain.Entities.User", "User")
                         .WithMany("Organizations")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.SetNull);
@@ -216,12 +216,12 @@ namespace KeepLock.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("KeepLock.Domain.Models.Organization.Organization", b =>
+            modelBuilder.Entity("KeepLock.Domain.Entities.Organizations.Organization", b =>
                 {
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("KeepLock.Domain.Models.User", b =>
+            modelBuilder.Entity("KeepLock.Domain.Entities.User", b =>
                 {
                     b.Navigation("Organizations");
                 });

@@ -1,12 +1,13 @@
-﻿using KeepLock.Domain.Enums;
-using KeepLock.Domain.Models.Common;
-using KeepLock.Domain.Models.Organizations;
+﻿using KeepLock.Domain.Entities.Common;
+using KeepLock.Domain.Enums;
 
-namespace KeepLock.Domain.Models;
+namespace KeepLock.Domain.Entities;
 
 public class User : BaseEntity
 {
     public string Email { get; set; } = string.Empty;
+    public string FirstName { get; set; } = string.Empty;
+    public string LastName { get; set; } = string.Empty;
     public ProviderType AuthProvider { get; set; } = ProviderType.Email;
     public string? OAuthProviderId { get; set; }
 
@@ -24,4 +25,6 @@ public class User : BaseEntity
     public bool IsEnabled { get; set; } = true;
 
     public virtual ICollection<OrganizationUser> Organizations { get; set; } = new List<OrganizationUser>();
+    public virtual ICollection<Collection> Collections { get; set; } = new List<Collection>();
+    public virtual ICollection<Folder> Folders { get; set; } = new List<Folder>();
 }

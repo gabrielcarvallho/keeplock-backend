@@ -1,4 +1,4 @@
-﻿using KeepLock.Domain.Models.Common;
+﻿using KeepLock.Domain.Entities.Common;
 using System.Linq.Expressions;
 
 namespace KeepLock.Domain.Interfaces.Repositories;

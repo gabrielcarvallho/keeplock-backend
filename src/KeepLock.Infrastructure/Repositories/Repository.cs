@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 using KeepLock.Domain.Interfaces.Repositories;
-using KeepLock.Domain.Models.Common;
+using KeepLock.Domain.Entities.Common;
 using KeepLock.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
